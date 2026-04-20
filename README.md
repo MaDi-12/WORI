@@ -41,6 +41,7 @@ The WORI pipeline produces Wolof instruction-response pairs from existing multil
 **Step 3: Back-translation to Wolof.** The French instructions are translated back into Wolof via GalsenAI, yielding the final Wolof instruction-response pairs.
 
 The key architectural distinction from MURI-IT is the separation between generation and translation. By generating instructions in French first and translating them independently, no source-language framing text enters the Wolof instruction field. Note that this pipeline is designed around tools specifically available for Wolof, GalsenAI in particular, and is not directly transferable to other languages without equivalent translation infrastructure.
+![WORI Generation Pipeline](images/wori_generation_pipeline.svg)
 
 ---
 
@@ -53,6 +54,9 @@ A hierarchical pipeline was applied to evaluate the linguistic quality of both W
 **Step 2: AfroLID (African language detection).** AfroLID 1.5 is applied to the ambiguous cases to detect the presence of a Wolof signal within the African language space.
 
 **Step 3: Triangulation.** The global Wolof proportion is estimated by combining both steps. A secondary metric, *strong Wolof*, is defined as instances where AfroLID confidence is at or above 0.5.
+
+![Linguistic Validation Pipeline](images/linguistic_validation_pipeline.svg)
+
 
 ---
 
